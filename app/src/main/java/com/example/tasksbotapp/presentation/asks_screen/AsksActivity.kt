@@ -1,4 +1,4 @@
-package com.example.tasksbotapp.presentation.main
+package com.example.tasksbotapp.presentation.asks_screen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class AsksActivity : AppCompatActivity() {
     lateinit var adapter: AsksListAdapter
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +20,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val getAsksUseCase = GetAsks(UserAsksFirebase())
-        val removeAsksUseCase = RemoveAsks(UserAsksFirebase())
+        val getRoomName = intent.getStringExtra("room").toString()
+
+        val getAsksUseCase = GetAsks(UserAsksFirebase(getRoomName))
+        val removeAsksUseCase = RemoveAsks(UserAsksFirebase(getRoomName))
 
         adapter = AsksListAdapter()
         CoroutineScope(Dispatchers.Unconfined).launch {

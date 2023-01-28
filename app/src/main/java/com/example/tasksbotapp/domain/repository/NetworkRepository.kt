@@ -1,6 +1,6 @@
 package com.example.tasksbotapp.domain.repository
 
-import com.example.tasksbotapp.presentation.main.AsksListAdapter
+import com.example.tasksbotapp.presentation.asks_screen.AsksListAdapter
 
 
 interface NetworkRepository {
