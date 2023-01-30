@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tasksbotapp.data.firebaseRepository.UserAsksFirebase
 import com.example.tasksbotapp.databinding.ActivityMainBinding
-import com.example.tasksbotapp.domain.use_cases.GetAsks
-import com.example.tasksbotapp.domain.use_cases.RemoveAsks
+import com.example.tasksbotapp.domain.use_cases.GetAsksUseCase
+import com.example.tasksbotapp.domain.use_cases.RemoveAsksUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,8 +22,8 @@ class AsksActivity : AppCompatActivity() {
 
         val getRoomName = intent.getStringExtra("room").toString()
 
-        val getAsksUseCase = GetAsks(UserAsksFirebase(getRoomName))
-        val removeAsksUseCase = RemoveAsks(UserAsksFirebase(getRoomName))
+        val getAsksUseCase = GetAsksUseCase(UserAsksFirebase(getRoomName))
+        val removeAsksUseCase = RemoveAsksUseCase(UserAsksFirebase(getRoomName))
 
         adapter = AsksListAdapter()
         CoroutineScope(Dispatchers.Unconfined).launch {

@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">TasksBotApp</string>
-    <string name="addJoinTheRoom">войти или создать комнату</string>
+    <string name="addJoinTheRoom">войти</string>
     <string name="buttonText">перейти</string>
 </resources>
